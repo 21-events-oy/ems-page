@@ -9,19 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Tito ticketing: inline mode (no iframe), without default widget CSS -->
-  <script src='https://js.tito.io/v2/with/inline/without/widget-css' async></script>
-  <script>
-    window.tito = window.tito || function() {
-      (tito.q = tito.q || []).push(arguments);
-    };
-    tito("config.set", {
-      allowedEvents: ["ems/2026"]
-    });
-  </script>
 </head>
 <body>
 
@@ -36,7 +26,8 @@
         <li><a href="#speakers">Speakers</a></li>
         <li><a href="#schedule">Schedule</a></li>
         <li><a href="#sponsors">Sponsors</a></li>
-        <li><a href="#tickets" class="btn btn--sm btn--accent">Get Your Tickets</a></li>
+        <li><a href="https://miningsummit.my.canva.site" target="_blank" rel="noopener" class="btn btn--sm btn--outline">Learn More</a></li>
+        <li><a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--sm btn--accent">Get Your Tickets</a></li>
       </ul>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -55,7 +46,7 @@
       <img src="/ems-logo.svg" alt="EMS – European Mining Summit" class="hero__logo" />
       <p class="hero__tag">23 September 2026 · Helsinki, Finland</p>
       <h1 class="hero__title">European<br/>Mining Summit</h1>
-      <p class="hero__subtitle">The must-go industry event for European miners. Dedicated for making a real change. Fueled with the passion and track record of BTC HEL Crew.</p>
+      <p class="hero__subtitle">The must-attend industry event for European miners. Dedicated for making a real change. Fueled with the passion and track record of BTC HEL Crew.</p>
 
       <!-- Countdown Timer -->
       <div class="countdown" id="countdown">
@@ -81,8 +72,8 @@
       </div>
 
       <div class="hero__actions">
-        <a href="#tickets" class="btn btn--accent btn--lg">Get Your Tickets</a>
-        <a href="/deck" class="btn btn--outline btn--lg">Learn More</a>
+        <a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Get Your Tickets</a>
+        <a href="https://miningsummit.my.canva.site" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Learn More</a>
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
@@ -196,10 +187,10 @@
           </div>
         </div>
         <div class="speaker">
-          <img src="/speakers/martinpaasi.jpg" alt="Martin Paasi" class="speaker__photo" />
+          <img src="/speakers/thomasbrand.jpg" alt="Thomas Brand" class="speaker__photo" />
           <div class="speaker__info">
-            <h3 class="speaker__name">Martin Paasi</h3>
-            <p class="speaker__role">Member of the Finnish Parliament</p>
+            <h3 class="speaker__name">Thomas Brand</h3>
+            <p class="speaker__role">Chief Research Officer, Coinmotion</p>
           </div>
         </div>
         <div class="speaker">
@@ -230,16 +221,10 @@
     <div class="container">
       <div class="section__header">
         <span class="section__tag">Secure Your Spot</span>
-        <h2 class="section__title">Get Your Tickets</h2>
-        <p class="section__desc">Seats are limited. Secure yours before they sell out.</p>
+        <h2 class="section__title"><a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener">Get Your Tickets</a></h2>
+        <p class="section__desc">Seats are hard capped at 200. Secure yours before they sell out.</p>
       </div>
-      <div class="tito-wrapper" id="tito-wrapper">
-        <tito-widget event="ems/2026"></tito-widget>
-      </div>
-      <div class="tito-completion" id="tito-completion">
-        <span class="form__success-icon">✓</span>
-        <p>You're registered! Check your email for confirmation.</p>
-      </div>
+      <a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Get Your Tickets</a>
     </div>
   </section>
 
@@ -250,7 +235,7 @@
         <span class="section__tag">Sponsors</span>
         <h2 class="section__title">Sponsorship Listing</h2>
         <p class="section__desc">Showcase your business and get real opportunity. Choose your package and contact us. Join us to change the world.</p>
-        <a href="/deck" class="btn btn--navy btn--lg">Learn More</a>
+        <a href="https://miningsummit.my.canva.site" target="_blank" rel="noopener" class="btn btn--navy btn--lg">Learn More</a>
       </div>
       <div class="sponsor-category">
         <h3 class="sponsor-category__title">Main Sponsor</h3>

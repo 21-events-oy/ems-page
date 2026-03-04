@@ -52,24 +52,9 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// --- Tito ticketing ---
-window.tito = window.tito || function() {
-  (tito.q = tito.q || []).push(arguments);
-};
-
-tito('on:widget:loaded', function() {
-  console.log('[tito] Widget loaded successfully');
-});
-
-tito('on:registration:finished', function(data) {
-  console.log('[tito] Registration complete:', data.reference, data.total, data.currency);
-  const completion = document.getElementById('tito-completion');
-  if (completion) completion.classList.add('show');
-});
-
 // --- Scroll reveal animations ---
 const revealElements = document.querySelectorAll(
-  '.feature, .speaker, .schedule__item, .event-details__card, .sponsor-tier, .tito-wrapper, .form'
+  '.feature, .speaker, .schedule__item, .event-details__card, .sponsor-tier, .form'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
