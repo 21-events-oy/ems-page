@@ -23,6 +23,14 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
+// --- Schedule themes accordion ---
+document.querySelectorAll('.schedule-themes__toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const item = toggle.parentElement;
+    item.classList.toggle('open');
+  });
+});
+
 // --- Countdown timer ---
 const EVENT_DATE = new Date('2026-09-23T08:00:00+03:00'); // Helsinki time (EEST)
 

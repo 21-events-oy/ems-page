@@ -277,8 +277,26 @@ img { max-width: 100%; display: block; }
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: rgba(255, 255, 255, 0.65);
   max-width: 560px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
   line-height: 1.7;
+}
+
+.hero__partner {
+  display: inline-block;
+  margin-bottom: 22px;
+}
+
+.hero__partner-logo {
+  max-width: 84px;
+  height: auto;
+  opacity: 0.8;
+  transition: var(--transition);
+  border-radius: var(--radius-lg);
+}
+
+.hero__partner-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .hero__logo {
@@ -640,8 +658,87 @@ img { max-width: 100%; display: block; }
 }
 
 /* --- Schedule --- */
+.schedule-themes {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  padding: 32px 40px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(0, 47, 108, 0.08);
+  text-align: center;
+}
+
+.schedule-themes__intro {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.schedule-themes__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.schedule-themes__item {
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.1), rgba(0, 191, 165, 0.1));
+  border-left: 3px solid var(--green);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.schedule-themes__toggle {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 12px 24px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.schedule-themes__toggle:hover {
+  background: rgba(0, 200, 83, 0.1);
+}
+
+.schedule-themes__icon {
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.schedule-themes__item.open .schedule-themes__icon {
+  transform: rotate(45deg);
+}
+
+.schedule-themes__dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 24px;
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.schedule-themes__item.open .schedule-themes__dropdown {
+  max-height: 100px;
+  padding: 12px 24px;
+}
+
 .schedule-coming {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: 1rem;
   text-align: center;
   color: var(--gray-400);
   font-weight: 400;
