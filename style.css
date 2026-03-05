@@ -1071,6 +1071,13 @@ img { max-width: 100%; display: block; }
   font-size: 0.85rem;
 }
 
+.footer__links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
 .footer__copy {
   font-size: 0.8rem;
   opacity: 0.6;
