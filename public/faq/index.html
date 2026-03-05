@@ -45,16 +45,14 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="nav nav--scrolled" id="nav">
+  <nav class="nav" id="nav">
     <div class="container nav__inner">
       <a href="/" class="nav__logo">
         <img src="/ems-logo.svg" alt="EMS" class="nav__logo-img" />
       </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#speakers">Speakers</a></li>
-        <li><a href="/#schedule">Schedule</a></li>
-        <li><a href="/#sponsors">Sponsors</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/faq" class="btn btn--sm btn--outline">FAQ</a></li>
         <li><a href="/deck" class="btn btn--sm btn--outline">Pitch Deck</a></li>
         <li><a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--sm btn--accent">Get Your Tickets</a></li>
       </ul>
@@ -66,10 +64,30 @@
 
   <!-- Embed Section -->
   <section class="embed-section">
-    <div class="embed-wrapper">
-      <div class="embed-ratio">
+    <div style="
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      box-sizing: border-box;
+    ">
+      <div style="
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 ratio — adjust if your Canva design is different */
+        overflow: hidden;
+      ">
         <iframe
           src="https://www.canva.com/design/DAHC_PNO608/wBUbgp4yD5_YDbwAMsnc9A/view?embed"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+          "
           allowfullscreen
           loading="lazy"
         ></iframe>
@@ -84,6 +102,10 @@
         <img src="/ems-logo.svg" alt="EMS" class="footer__logo-img" />
       </div>
       <p class="footer__info">23 September 2026 · Helsinki, Finland</p>
+      <div class="footer__links">
+        <a href="/faq" class="btn btn--sm btn--outline">FAQ</a>
+        <a href="/deck" class="btn btn--sm btn--outline">Pitch Deck</a>
+      </div>
       <p class="footer__copy">&copy; 2026 European Mining Summit. All rights reserved.</p>
       <div class="footer__organizer">
         <a href="https://btchel.com" target="_blank" rel="noopener"><img src="/sponsors/btchel.png" alt="BTC HEL" class="footer__btchel-logo" /></a>
@@ -93,6 +115,11 @@
   </footer>
 
   <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    });
     // Mobile nav toggle
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
