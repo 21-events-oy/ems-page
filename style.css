@@ -972,6 +972,340 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
+/* --- Tito Widget --- */
+.tito-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+tito-widget {
+  font-family: var(--font);
+  color: var(--white);
+  display: block;
+}
+
+tito-widget * {
+  font-family: var(--font);
+  box-sizing: border-box;
+}
+
+/* --- Ticket card: Classic ticket shape --- */
+.tito-release {
+  position: relative;
+  padding: 24px 48px;
+  margin-bottom: 20px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-shadow: none;
+  border-radius: 8px;
+  /* Notch cutouts using mask */
+  -webkit-mask:
+    radial-gradient(circle at 0% 50%, transparent 12px, black 12px),
+    radial-gradient(circle at 100% 50%, transparent 12px, black 12px);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle at 0% 50%, transparent 12px, black 12px),
+    radial-gradient(circle at 100% 50%, transparent 12px, black 12px);
+  mask-composite: intersect;
+}
+
+/* Inner dashed border */
+.tito-release::before {
+  content: '';
+  position: absolute;
+  inset: 8px 20px;
+  border: 2px dashed currentColor;
+  opacity: 0.2;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Ticket title */
+.tito-release-title,
+.tito-release--title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.tito-release-description,
+.tito-release-description--description {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.tito-price {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tito-release--tax,
+.tito-release--status {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* ---- 1st ticket: Industry Pass — WHITE design ---- */
+.tito-release:nth-child(1) {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  color: var(--navy);
+}
+
+.tito-release:nth-child(1)::before {
+  border-color: var(--navy);
+}
+
+.tito-release:nth-child(1) .tito-release-title,
+.tito-release:nth-child(1) .tito-release--title {
+  color: var(--navy);
+}
+
+.tito-release:nth-child(1) .tito-price {
+  color: var(--navy);
+}
+
+.tito-release:nth-child(1):hover {
+  border-color: var(--navy);
+  box-shadow: 0 8px 32px rgba(0, 47, 108, 0.15);
+}
+
+/* ---- 2nd ticket: VIP — BLACK design with white text ---- */
+.tito-release:nth-child(2) {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  color: #ffffff;
+}
+
+.tito-release:nth-child(2)::before {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tito-release:nth-child(2) .tito-release-title,
+.tito-release:nth-child(2) .tito-release--title {
+  color: #ffffff;
+}
+
+.tito-release:nth-child(2) .tito-release-description,
+.tito-release:nth-child(2) .tito-release-description--description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tito-release:nth-child(2) .tito-price {
+  color: #ffffff;
+}
+
+.tito-release:nth-child(2) .tito-release--tax,
+.tito-release:nth-child(2) .tito-release--status {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tito-release:nth-child(2):hover {
+  border-color: #ffffff;
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+.tito-release:nth-child(2) .tito-quantity-input,
+.tito-release:nth-child(2) .tito-release--quantity-input {
+  border-color: #444;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.tito-release:nth-child(2) .tito-release--decrement-quantity--link,
+.tito-release:nth-child(2) .tito-release--increment-quantity--link {
+  border-color: #444;
+  color: #ffffff;
+}
+
+/* Quantity controls */
+.tito-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tito-quantity-input,
+.tito-release--quantity-input {
+  width: 48px !important;
+  text-align: center;
+  padding: 8px 4px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--gray-200);
+  background: rgba(0, 47, 108, 0.05);
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+
+.tito-release--decrement-quantity--link,
+.tito-release--increment-quantity--link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-200);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--navy);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.tito-release--decrement-quantity--link:hover,
+.tito-release--increment-quantity--link:hover {
+  border-color: var(--green);
+  background: rgba(0, 200, 83, 0.1);
+}
+
+/* --- Tito form / checkout area --- */
+.tito-widget-form,
+.tito-registration {
+  margin-top: 24px;
+}
+
+tito-widget label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 6px;
+}
+
+tito-widget input,
+tito-widget select,
+tito-widget textarea {
+  font-family: var(--font);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  transition: var(--transition);
+  outline: none;
+  width: 100%;
+}
+
+tito-widget input::placeholder,
+tito-widget textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+tito-widget input:focus,
+tito-widget select:focus,
+tito-widget textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-glow);
+}
+
+/* Submit / Register button */
+tito-widget button,
+tito-widget [type="submit"],
+tito-widget .tito-submit,
+tito-widget .tito-widget-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--green);
+  color: var(--navy-dark);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+  margin-top: 8px;
+}
+
+tito-widget button:hover,
+tito-widget [type="submit"]:hover,
+tito-widget .tito-submit:hover,
+tito-widget .tito-widget-button:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 200, 83, 0.35);
+}
+
+/* Discount code area */
+.tito-discount {
+  margin-top: 16px;
+}
+
+.tito-discount-code-field {
+  display: flex;
+  gap: 8px;
+}
+
+/* Misc Tito elements */
+tito-widget a {
+  color: var(--green);
+}
+
+.tito-release--status {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+.tito-release--tax {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* Sold out / locked states */
+.tito-release--sold-out,
+.tito-release--expired {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.tito-release--locked {
+  opacity: 0.6;
+}
+
+/* --- Tito completion message --- */
+.tito-completion {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 48px 24px;
+  animation: fadeIn 0.4s ease;
+}
+
+.tito-completion.show {
+  display: flex;
+}
+
+/* --- Tito responsive --- */
+@media (max-width: 768px) {
+  .tito-release {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 24px 24px 36px;
+  }
+}
 
 /* --- Sponsor Tiers --- */
 .sponsors-logos {

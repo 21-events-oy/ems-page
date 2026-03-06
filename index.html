@@ -12,6 +12,16 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/style.css" />
 
+  <!-- Tito ticketing: inline mode (no iframe), without default widget CSS -->
+  <script src='https://js.tito.io/v2/with/inline/without/widget-css' async></script>
+  <script>
+    window.tito = window.tito || function() {
+      (tito.q = tito.q || []).push(arguments);
+    };
+    tito("config.set", {
+      allowedEvents: ["ems/2026"]
+    });
+  </script>
 </head>
 <body>
 
@@ -28,7 +38,7 @@
         <li><a href="#sponsors">Sponsors</a></li>
         <li><a href="/faq" class="btn btn--sm btn--outline">FAQ</a></li>
         <li><a href="/deck" class="btn btn--sm btn--outline">Pitch Deck</a></li>
-        <li><a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--sm btn--accent">Get Your Tickets</a></li>
+        <li><a href="#tickets" class="btn btn--sm btn--accent">Get Your Tickets</a></li>
       </ul>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -76,7 +86,7 @@
       </div>
 
       <div class="hero__actions">
-        <a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Get Your Tickets</a>
+        <a href="#tickets" class="btn btn--accent btn--lg">Get Your Tickets</a>
         <a href="/deck" class="btn btn--outline btn--lg">Pitch Deck</a>
       </div>
       <div class="hero__stats">
@@ -242,10 +252,16 @@
     <div class="container">
       <div class="section__header">
         <span class="section__tag">Secure Your Spot</span>
-        <h2 class="section__title"><a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener">Get Your Tickets</a></h2>
-        <p class="section__desc">Seats are hard capped at 200. Secure yours before they sell out.</p>
+        <h2 class="section__title">Get Your Tickets</h2>
+        <p class="section__desc">Seats are limited to 200. Secure yours before they sell out.</p>
       </div>
-      <a href="https://satlantis.io/events/1805/European-Mining-Summit-2026" target="_blank" rel="noopener" class="btn btn--accent btn--lg">Get Your Tickets</a>
+      <div class="tito-wrapper" id="tito-wrapper">
+        <tito-widget event="ems/2026"></tito-widget>
+      </div>
+      <div class="tito-completion" id="tito-completion">
+        <span class="form__success-icon">✓</span>
+        <p>You're registered! Check your email for confirmation.</p>
+      </div>
     </div>
   </section>
 
