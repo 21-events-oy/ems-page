@@ -19,10 +19,10 @@
   --gray-200: #C5CDD8;
   --gray-400: #7B8CA3;
   --gray-600: #4A5568;
-  --green: #00C853;
-  --green-dark: #00A843;
+  --green: #60A5FA;
+  --green-dark: #4F87CD;
   --green-dim: #1B5E20;
-  --green-glow: rgba(0, 200, 83, 0.15);
+  --green-glow: rgba(96, 165, 250, 0.15);
   --teal: #00BFA5;
   --radius: 8px;
   --radius-lg: 16px;
@@ -184,7 +184,7 @@ img { max-width: 100%; display: block; }
 .btn--accent:hover {
   background: var(--green-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0, 200, 83, 0.35);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.35);
 }
 
 .btn--navy {
@@ -326,7 +326,7 @@ img { max-width: 100%; display: block; }
   max-width: 340px;
   height: auto;
   margin: 0 auto 32px;
-  filter: drop-shadow(0 0 40px rgba(0, 200, 83, 0.15));
+  filter: drop-shadow(0 0 40px rgba(96, 165, 250, 0.15));
 }
 
 .hero__actions {
@@ -351,13 +351,19 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 200, 83, 0.06);
-  border: 1px solid rgba(0, 200, 83, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius);
   padding: 16px 20px 12px;
   min-width: 80px;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .countdown__block::before {
@@ -366,16 +372,15 @@ img { max-width: 100%; display: block; }
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
-  opacity: 0.6;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
 }
 
 .countdown__block::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 200, 83, 0.04) 0%, transparent 60%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -383,10 +388,10 @@ img { max-width: 100%; display: block; }
   font-family: var(--mono);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--green);
+  color: rgba(255, 255, 255, 0.96);
   line-height: 1;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 20px rgba(0, 200, 83, 0.4), 0 0 60px rgba(0, 200, 83, 0.1);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
   position: relative;
   z-index: 1;
 }
@@ -405,7 +410,7 @@ img { max-width: 100%; display: block; }
 .countdown__sep {
   font-family: var(--mono);
   font-size: 1.5rem;
-  color: rgba(0, 200, 83, 0.3);
+  color: rgba(255, 255, 255, 0.45);
   padding-bottom: 16px;
   animation: blink 1s step-end infinite;
 }
@@ -521,7 +526,7 @@ img { max-width: 100%; display: block; }
 
 .feature:hover {
   border-color: var(--green);
-  box-shadow: 0 8px 32px rgba(0, 200, 83, 0.08);
+  box-shadow: 0 8px 32px rgba(96, 165, 250, 0.08);
   transform: translateY(-2px);
 }
 
@@ -708,10 +713,18 @@ img { max-width: 100%; display: block; }
 }
 
 .schedule-themes__item {
-  background: linear-gradient(135deg, rgba(0, 200, 83, 0.1), rgba(0, 191, 165, 0.1));
-  border-left: 3px solid var(--green);
+  background: rgba(0, 47, 108, 0.035);
+  border: 1px solid rgba(0, 47, 108, 0.08);
+  border-left: 3px solid rgba(96, 165, 250, 0.55);
   border-radius: var(--radius);
   overflow: hidden;
+  transition: background 0.2s ease, border-color 0.2s ease, border-left-color 0.2s ease;
+}
+
+.schedule-themes__item:hover,
+.schedule-themes__item.open {
+  background: rgba(96, 165, 250, 0.1);
+  border-left-color: var(--green);
 }
 
 .schedule-themes__toggle {
@@ -732,7 +745,7 @@ img { max-width: 100%; display: block; }
 }
 
 .schedule-themes__toggle:hover {
-  background: rgba(0, 200, 83, 0.1);
+  background: transparent;
 }
 
 .schedule-themes__icon {
@@ -822,7 +835,7 @@ img { max-width: 100%; display: block; }
 }
 
 .schedule__type--keynote {
-  background: rgba(0, 200, 83, 0.12);
+  background: rgba(96, 165, 250, 0.12);
   color: var(--green-dark);
 }
 
@@ -1189,7 +1202,7 @@ tito-widget * {
 .tito-release--decrement-quantity--link:hover,
 .tito-release--increment-quantity--link:hover {
   border-color: var(--green);
-  background: rgba(0, 200, 83, 0.1);
+  background: rgba(96, 165, 250, 0.1);
 }
 
 /* --- Tito form / checkout area --- */
@@ -1263,7 +1276,7 @@ tito-widget .tito-submit:hover,
 tito-widget .tito-widget-button:hover {
   background: var(--green-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0, 200, 83, 0.35);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.35);
 }
 
 /* Discount code area */
