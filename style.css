@@ -1090,6 +1090,10 @@ img { max-width: 100%; display: block; }
   background: var(--white);
 }
 
+#ticket-form .form__radios {
+  justify-content: space-between;
+}
+
 #ticket-form .form__success {
   background: var(--off-white);
   color: var(--navy);
@@ -1155,6 +1159,11 @@ img { max-width: 100%; display: block; }
   max-height: 130px;
 }
 
+.sponsors-logos--small .sponsors-logos__img {
+  max-width: 154px;
+  max-height: 70px;
+}
+
 .sponsor-category {
   text-align: center;
   margin-bottom: 40px;
@@ -1170,12 +1179,6 @@ img { max-width: 100%; display: block; }
   margin-bottom: 24px;
 }
 
-.sponsors__form-title {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
 
 /* --- Footer --- */
 .footer {

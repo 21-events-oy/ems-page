@@ -118,5 +118,4 @@ function handleForm(formId, successId, endpoint, submitText) {
   });
 }
 
-handleForm('sponsor-form', 'sponsor-success', 'https://formspree.io/f/mreaepwd', 'Send Inquiry');
 handleForm('ticket-form', 'ticket-success', 'https://formspree.io/f/xeewkpwr', 'Submit Application');
