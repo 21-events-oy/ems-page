@@ -1091,7 +1091,8 @@ img { max-width: 100%; display: block; }
 }
 
 #ticket-form .form__radios {
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px 16px;
 }
 
 #ticket-form .form__success {
