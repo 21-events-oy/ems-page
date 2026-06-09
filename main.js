@@ -60,24 +60,10 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// --- Tito ticketing ---
-window.tito = window.tito || function() {
-  (tito.q = tito.q || []).push(arguments);
-};
-
-tito('on:widget:loaded', function() {
-  console.log('[tito] Widget loaded successfully');
-});
-
-tito('on:registration:finished', function(data) {
-  console.log('[tito] Registration complete:', data.reference, data.total, data.currency);
-  const completion = document.getElementById('tito-completion');
-  if (completion) completion.classList.add('show');
-});
 
 // --- Scroll reveal animations ---
 const revealElements = document.querySelectorAll(
-  '.feature, .speaker, .schedule__item, .event-details__card, .sponsor-tier, .tito-wrapper, .form'
+  '.feature, .speaker, .schedule__item, .event-details__card, .sponsor-tier, .form'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
@@ -97,7 +83,7 @@ const observer = new IntersectionObserver(
 revealElements.forEach(el => observer.observe(el));
 
 // --- Form handling ---
-function handleForm(formId, successId) {
+function handleForm(formId, successId, endpoint, submitText) {
   const form = document.getElementById(formId);
   if (!form) return;
   const success = document.getElementById(successId);
@@ -109,7 +95,7 @@ function handleForm(formId, successId) {
     btn.textContent = 'Sending...';
 
     try {
-      const res = await fetch('https://formspree.io/f/mreaepwd', {
+      const res = await fetch(endpoint, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
@@ -127,9 +113,10 @@ function handleForm(formId, successId) {
 
     btn.disabled = false;
     if (!btn.textContent.startsWith('Error')) {
-      btn.textContent = 'Send Inquiry';
+      btn.textContent = submitText;
     }
   });
 }
 
-handleForm('sponsor-form', 'sponsor-success');
+handleForm('sponsor-form', 'sponsor-success', 'https://formspree.io/f/mreaepwd', 'Send Inquiry');
+handleForm('ticket-form', 'ticket-success', 'https://formspree.io/f/xeewkpwr', 'Submit Application');

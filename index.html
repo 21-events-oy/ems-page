@@ -12,16 +12,6 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Tito ticketing: inline mode (no iframe), without default widget CSS -->
-  <script src='https://js.tito.io/v2/with/inline/without/widget-css' async></script>
-  <script>
-    window.tito = window.tito || function() {
-      (tito.q = tito.q || []).push(arguments);
-    };
-    tito("config.set", {
-      allowedEvents: ["ems/2026"]
-    });
-  </script>
 </head>
 <body>
 
@@ -251,17 +241,70 @@
   <section class="section section--dark" id="tickets">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Secure Your Spot</span>
-        <h2 class="section__title">Get Your Tickets</h2>
-        <p class="section__desc">Seats are limited to 200. Secure yours before they sell out.</p>
+        <span class="section__tag">Invitation Only</span>
+        <h2 class="section__title">Apply for a Ticket</h2>
+        <p class="section__desc">Tickets to the event are invitation only. Apply for a ticket here.</p>
       </div>
-      <div class="tito-wrapper" id="tito-wrapper">
-        <tito-widget event="ems/2026"></tito-widget>
-      </div>
-      <div class="tito-completion" id="tito-completion">
-        <span class="form__success-icon">✓</span>
-        <p>You're registered! Check your email for confirmation.</p>
-      </div>
+      <form class="form form--ticket" id="ticket-form">
+        <div class="form__grid">
+          <div class="form__group">
+            <label class="form__label" for="tk-firstname">First Name</label>
+            <input class="form__input" type="text" id="tk-firstname" name="firstname" placeholder="First name" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="tk-lastname">Last Name</label>
+            <input class="form__input" type="text" id="tk-lastname" name="lastname" placeholder="Last name" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="tk-email">Email</label>
+            <input class="form__input" type="email" id="tk-email" name="email" placeholder="name@company.com" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="tk-title">Title</label>
+            <input class="form__input" type="text" id="tk-title" name="title" placeholder="Your title" required />
+          </div>
+          <div class="form__group form__group--full">
+            <label class="form__label" for="tk-company">Company / Entity</label>
+            <input class="form__input" type="text" id="tk-company" name="company" placeholder="Company or entity name" required />
+          </div>
+        </div>
+        <div class="form__group form__group--full">
+          <label class="form__label">Category</label>
+          <div class="form__radios">
+            <label class="form__radio">
+              <input type="radio" name="category" value="Mining" required />
+              <span>Mining</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="category" value="Datacenters" />
+              <span>Datacenters</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="category" value="Infrastructure" />
+              <span>Infrastructure</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="category" value="Regulation" />
+              <span>Regulation</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="category" value="Energy" />
+              <span>Energy</span>
+            </label>
+            <label class="form__radio">
+              <input type="radio" name="category" value="Finance" />
+              <span>Finance</span>
+            </label>
+          </div>
+        </div>
+        <button class="btn btn--accent btn--lg btn--full" type="submit">
+          Submit Application
+        </button>
+        <div class="form__success" id="ticket-success">
+          <span class="form__success-icon">✓</span>
+          <p>Application submitted! We'll review and get back to you soon.</p>
+        </div>
+      </form>
     </div>
   </section>
 
