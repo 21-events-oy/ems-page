@@ -35,7 +35,7 @@ Single-page static site:
 
 - `index.html` — Full page: nav, hero, about, speakers, schedule, tickets, sponsors, footer
 - `style.css` — All styles (BEM methodology, CSS custom properties)
-- `main.js` — Nav scroll effect, mobile toggle, countdown timer, Tito callbacks, scroll-reveal (IntersectionObserver), sponsor form submission (Formspree)
+- `main.js` — Nav scroll effect, mobile toggle, countdown timer, scroll-reveal (IntersectionObserver), form submissions (ticket application + sponsor inquiry via Formspree)
 - `favicon.svg` — Hexagon SVG favicon
 - `wrangler.jsonc` — Cloudflare Pages config
 
@@ -45,20 +45,29 @@ Single-page static site:
 - `public/hero-bg.jpg` — Hero background (aurora borealis)
 - `public/tickets-bg.jpg` — Tickets section background (aurora borealis 3)
 - `public/whitegrid.jpg` — Light sections background (geometry)
-- `public/speakers/*.jpg` — 6 speaker photos (optimized, ~160KB total)
+- `public/speakers/*.jpg` — 13 speaker photos (optimized)
 - `public/sponsors/*.png|jpg|webp` — Sponsor logos (Nordblock, Minersloop, Terahash, EBEA, BTC HEL)
 - `public/deck/index.html` — Unlisted partner deck page (noindex, nofollow)
 - `public/deck/partner-deck.pdf` — Partner deck PDF (~11.5MB)
 
 ## Integrations
 
+### Ticketing (Invitation-Only Flow)
+The event is **invitation-only**. Current flow:
+1. Visitors submit application via Formspree form on the site
+2. Organizers review applications manually
+3. Approved applicants receive a secret Tito ticket link via email
+4. Attendees complete registration/payment on Tito
+
 ### Tito Ticketing
 - **Event**: ti.to/ems/2026
-- **Widget**: Inline mode, no default CSS (`v2/with/inline/without/widget-css`)
-- **Config**: `allowedEvents: ["ems/2026"]`
-- **Tickets**: 3 releases styled via `nth-child` — (1) Industry Pass (green), (2) VIP (white), (3) Supreme (black)
-- **Gotcha**: Adding/removing tickets in Tito shifts `nth-child` ordering — must update CSS to match
-- **Gotcha**: Tito requires HTTPS for real orders. Use `development_mode` plugin for localhost testing.
+- **Usage**: Secret ticket links sent to approved applicants (not embedded on site)
+- **Gotcha**: Tito requires HTTPS for real orders
+
+### Formspree (Ticket Application Form)
+- **Endpoint**: formspree.io/f/xeewkpwr
+- **Sends**: firstname, lastname, email, title, company, field (Mining/Infrastructure/Regulation/Energy/Finance)
+- **Shows**: success message on 200, error text on failure
 
 ### Formspree (Sponsor Form)
 - **Endpoint**: formspree.io/f/mreaepwd
@@ -91,18 +100,24 @@ Single-page static site:
 
 ### Add a new speaker
 1. Optimize photo: `convert ~/Downloads/speakers/name.jpg -resize 500x -quality 75 public/speakers/name.jpg`
-2. Add HTML block inside `.speakers-grid` in index.html (copy existing `.speaker` div)
+2. Add HTML block inside `.speakers-grid` in index.html:
+```html
+<div class="speaker">
+  <img src="/speakers/name.jpg" alt="Name" class="speaker__photo" />
+  <div class="speaker__info">
+    <h3 class="speaker__name">Name</h3>
+    <p class="speaker__role">Title / Role</p>
+    <p class="speaker__bio">Bio text (appears on hover)</p>
+  </div>
+</div>
+```
 3. Update speaker count in hero stats if needed
+4. **Note**: Grid is 4 columns. Name/title always visible; bio appears on hover.
 
 ### Add a new sponsor
 1. Copy/optimize logo to `public/sponsors/`
 2. Add `<a><img></a>` inside the appropriate `.sponsors-logos` div (Main Sponsor or Pioneers)
 3. Link to sponsor website with `target="_blank" rel="noopener"`
-
-### Add/remove a Tito ticket
-- Tickets are styled by position using `.tito-release:nth-child(N)`
-- If order changes in Tito dashboard, CSS must be updated to match
-- Industry Pass = green bg/white text, VIP = white bg/navy text, Supreme = black bg/green text
 
 ### Push to live
 ```bash
