@@ -31,6 +31,16 @@ document.querySelectorAll('.schedule-themes__toggle').forEach(toggle => {
   });
 });
 
+// --- Program accordion ---
+document.querySelectorAll('.program__toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const item = toggle.closest('.program__item--expandable');
+    if (item) {
+      item.classList.toggle('open');
+    }
+  });
+});
+
 // --- Countdown timer ---
 const EVENT_DATE = new Date('2026-09-23T08:00:00+03:00'); // Helsinki time (EEST)
 
@@ -63,7 +73,7 @@ setInterval(updateCountdown, 1000);
 
 // --- Scroll reveal animations ---
 const revealElements = document.querySelectorAll(
-  '.feature, .speaker, .schedule__item, .event-details__card, .sponsor-tier, .form'
+  '.feature, .speaker, .schedule__item, .program__item, .event-details__card, .sponsor-tier, .form'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
